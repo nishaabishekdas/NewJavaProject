@@ -3,7 +3,7 @@ package stringArrayLearningPackage;
 import java.util.Scanner;
 
 public class NameOfCityArrayClass {
-	String[] nameOfCity = { "Toronto", "Ottawa", "tonton", "Hamilton", "London", "Mississauga", "Burlington",
+	String[] nameOfCity = { "Toronto", "Ottawa", "Brampton", "Hamilton", "London", "Mississauga", "Burlington",
 			"Kingston", "Kitchener" };
 	String stringToExtract = "100 queen street,Toronto,M5V 3E3";
 	Scanner sc = new Scanner(System.in);
@@ -71,7 +71,8 @@ public class NameOfCityArrayClass {
 					break;
 				case 3:
 					String stringPostalCode = stringToExtract.substring(i);
-					System.out.println(extractedString + stringPostalCode);
+					String stringZip=extractedString + stringPostalCode;
+					System.out.println(stringZip);
 					break;
 				default:
 					break;
