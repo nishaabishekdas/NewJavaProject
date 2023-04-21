@@ -12,7 +12,7 @@ public class CellPhoneBillFinderClass {
 	float[] commonPlanPrice = { 70, 80, 75 };
 	Scanner sc = new Scanner(System.in);
 
-	String cellPhoneBrandSelectionMethod() {
+	String getCellPhoneBrand() {
 		String mobileBrand = null;
 		for (int index = 0; index < mobilePhoneBrand.length; index++) {
 			System.out.println(mobilePhoneBrand[index]);
@@ -21,7 +21,7 @@ public class CellPhoneBillFinderClass {
 		return mobileBrand;
 	}
 
-	String samsungModelSelectionMethod() {
+	String getSamsungModelNameFromUser() {
 		String mobileModel = null;
 
 		for (int index = 0; index < samsungPhoneModels.length; index++) {
@@ -31,7 +31,7 @@ public class CellPhoneBillFinderClass {
 		return mobileModel;
 	}
 
-	String appleModelSelectionMethod() {
+	String getAppleModelNameFromUser() {
 		String mobileModel = null;
 
 		for (int index = 0; index < applePhoneModels.length; index++) {
@@ -41,7 +41,7 @@ public class CellPhoneBillFinderClass {
 		return mobileModel;
 	}
 
-	String cellPhonePlanSelectionMethod() {
+	String getCellPhonePlanFromUser() {
 		String mobilePlan = null;
 		for (int index = 0; index < commonPlanNames.length; index++) {
 			System.out.println(commonPlanNames[index]);
@@ -50,7 +50,7 @@ public class CellPhoneBillFinderClass {
 		return mobilePlan;
 	}
 
-	float samsungMobilePriceFindingMethod(String userSelectedMobileModel) {
+	float getSamsungMobilePrice(String userSelectedMobileModel) {
 		String mobileModel = userSelectedMobileModel;
 		float mobilePrice = 0;
 		for (int i = 0; i < samsungPhoneModels.length; i++) {
@@ -61,7 +61,7 @@ public class CellPhoneBillFinderClass {
 		return mobilePrice;
 	}
 
-	float appleMobilePriceFindingMethod(String userSelectedMobileModel) {
+	float getAppleMobilePrice(String userSelectedMobileModel) {
 		String mobileModel = userSelectedMobileModel;
 		float mobilePrice = 0;
 		for (int i = 0; i < applePhoneModels.length; i++) {
@@ -72,7 +72,7 @@ public class CellPhoneBillFinderClass {
 		return mobilePrice;
 	}
 
-	float monthlyPlanPriceFindingMethod(String userSelectedMobilePlan) {
+	float getMonthlyMobilePrice(String userSelectedMobilePlan) {
 		String mobilePlan = userSelectedMobilePlan;
 		float planPrice = 0;
 		for (int i = 0; i < commonPlanNames.length; i++) {
@@ -83,10 +83,12 @@ public class CellPhoneBillFinderClass {
 		return planPrice;
 	}
 
-	float totalMonthlyAmountFinderMethod(float mobilePrice, float mobilePlanPrice) {
+	float getMonthlyPriceIncludingPlan(float mobilePrice, float mobilePlanPrice) {
 		float phoneRate = mobilePrice;
 		float phoneMonthlyRate = mobilePlanPrice;
 		float totalMonthlyAmount = phoneRate + phoneMonthlyRate;
 		return totalMonthlyAmount;
 	}
+	
+	
 }
