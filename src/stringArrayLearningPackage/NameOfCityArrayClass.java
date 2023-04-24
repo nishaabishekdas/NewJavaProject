@@ -43,13 +43,10 @@ public class NameOfCityArrayClass {
 						cityWithFun = cityNameWithoutTon + "fun";
 						cityWithTon = cityWithFun + cityWithTon.substring(j + 3);
 					}
-
 				}
 				System.out.println(cityWithTon);
 			}
-
 		}
-
 	}
 
 	void divideStringToVariables() {
@@ -79,6 +76,5 @@ public class NameOfCityArrayClass {
 				}
 			}
 		}
-
 	}
 }
