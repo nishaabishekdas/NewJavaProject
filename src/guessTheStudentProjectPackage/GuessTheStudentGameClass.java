@@ -15,11 +15,11 @@ public class GuessTheStudentGameClass {
 		for (int i = 0; i < randomNumberArray.length; i++) {
 			int index = randomNumberArray[i];
 			int lengthOfNamePicked = studentName[index].length();
-			setUnderscoreAsInitialOutput(lengthOfNamePicked, studentName[index]);
+			setAsteriskAsInitialArrayValue(lengthOfNamePicked, studentName[index]);
 		}
 	}
 
-	void setUnderscoreAsInitialOutput(int lengthOfNamePicked, String studentNameFromArray) {
+	void setAsteriskAsInitialArrayValue(int lengthOfNamePicked, String studentNameFromArray) {
 		char[] asterisk = new char[lengthOfNamePicked];
 		System.out.print("you are guessing:");
 		for (int j = 0; j < lengthOfNamePicked; j++) {
