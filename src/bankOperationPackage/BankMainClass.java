@@ -28,15 +28,15 @@ public class BankMainClass {
 			System.out.println("Which service you want\n 1.Withdraw \n 2.Deposit \n 3.View Balance");
 			String service = sc.nextLine();
 			if (service.equals("Withdraw")) {
-				bank.withdraw();
+				bank.withdrawAmountFromAccount();
 			} else if (service.equals("Deposit")) {
 				System.out.println("How do you want to deposit money? 1.Cash 2.Cheque");
 				String depositMoney = sc.nextLine();
-				
-				if (depositMoney.equals("cheque")) {
-					bank.deposit(1234567890, 1000);
-				} else if (depositMoney.equals("cash")) {
-					bank.deposit();
+
+				if (depositMoney.equals("Cheque")) {
+					bank.depositAmountToAccountUsingCheque(1234567890, 1000);
+				} else if (depositMoney.equals("Cash")) {
+					bank.depositAmountToAccount();
 				}
 			} else if (service.equals("View Balance")) {
 				bank.viewBalance();

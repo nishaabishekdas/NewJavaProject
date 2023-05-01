@@ -6,7 +6,7 @@ public class BankOperations {
 	int minBal = 500;
 	int dailyLimitOfWithdraw = 1500;
 	int dailyLimitOfDeposit = 1500;
-	public boolean isBank = true;
+	boolean isBank = true;
 	PersonsAccount person = new PersonsAccount(1234567890, "Nisha", 20000, 3246, "Nisha@123");
 	Scanner sc = new Scanner(System.in);
 
@@ -31,50 +31,44 @@ public class BankOperations {
 		return isPinCorrect;
 	}
 
-	 protected void withdraw() {
-		if (validatePin()) {
-			System.out.println("Enter the amount to withdraw");
-			int withdrawAmount = sc.nextInt();
-			if (withdrawAmount > 0 && withdrawAmount <= person.totalFundAvailable) {
-				person.totalFundAvailable -= withdrawAmount;
-				String isFundAvailable = (person.totalFundAvailable >= minBal) ? "Transaction Successful"
-						: "Account balance will go below mimimum balance.Transaction failed";
-				System.out.println(isFundAvailable);
-				System.out.println("Your current balance is:" + person.totalFundAvailable);
-			}
-
+	void withdrawAmountFromAccount() {
+		System.out.println("Enter the amount to withdraw");
+		float withdrawAmount = sc.nextFloat();
+		if (withdrawAmount > 0 && withdrawAmount <= person.totalFundAvailable) {
+			person.totalFundAvailable -= withdrawAmount;
+			String isFundAvailable = (person.totalFundAvailable >= minBal) ? "Transaction Successful"
+					: "Account balance will go below mimimum balance.Transaction failed";
+			System.out.println(isFundAvailable);
+			System.out.println("Your current balance is:" + person.totalFundAvailable);
 		}
-
 	}
 
-	 protected void withdraw(double accNumOfCheque, int withdrawAmountOfCheque) {
+	void withdrawAmountFromAccountUsingCheque(double accNumOfCheque, float withdrawAmountOfCheque) {
 		if (person.accountNumber == accNumOfCheque) {
 			person.totalFundAvailable -= withdrawAmountOfCheque;
 			System.out.println("Your current balance is:" + person.totalFundAvailable);
 		}
 	}
 
-	 protected void deposit() {
-		if (validatePin()) {
-			System.out.println("Enter the amount to deposit");
-			int depositAmount = sc.nextInt();
-			person.totalFundAvailable += depositAmount;
-			System.out.println("Your current balance is:" + person.totalFundAvailable);
-		}
+	void depositAmountToAccount() {
+		System.out.println("Enter the amount to deposit");
+		float depositAmount = sc.nextFloat();
+		person.totalFundAvailable += depositAmount;
+		System.out.println("Your current balance is:" + person.totalFundAvailable);
 	}
 
-	 protected void deposit(double accNumOfCheque, int depositAmountOfCheque) {
+	void depositAmountToAccountUsingCheque(double accNumOfCheque, float depositAmountOfCheque) {
 		if (person.accountNumber == accNumOfCheque) {
 			person.totalFundAvailable += depositAmountOfCheque;
 			System.out.println("Your current balance is:" + person.totalFundAvailable);
 		}
 	}
 
-	 protected void viewBalance() {
+	void viewBalance() {
 		System.out.println("Total Balance Available is:" + person.totalFundAvailable);
 	}
 
-	 boolean validatePassword() {
+	boolean validatePassword() {
 		int count = 2;
 		for (int i = 0; i < 3; i++) {
 			System.out.println("Enter your Password");
