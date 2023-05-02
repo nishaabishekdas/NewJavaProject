@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BankMainClass {
 
 	public static void main(String[] args) {
+		//PersonsAccount person = new PersonsAccount(1234567890, "Nisha", 20000, 3246, "Nisha@123");
 		BankOperations bank = null;
 		boolean isPinCorrect = false;
 		Scanner sc = new Scanner(System.in);

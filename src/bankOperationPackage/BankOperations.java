@@ -34,38 +34,48 @@ public class BankOperations {
 	void withdrawAmountFromAccount() {
 		System.out.println("Enter the amount to withdraw");
 		float withdrawAmount = sc.nextFloat();
-		if (withdrawAmount > 0 && withdrawAmount <= person.totalFundAvailable) {
-			person.totalFundAvailable -= withdrawAmount;
-			String isFundAvailable = (person.totalFundAvailable >= minBal) ? "Transaction Successful"
+		if (withdrawAmount > 0 && withdrawAmount <= person.getTotalBalance(isBank)) {
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance -= withdrawAmount;
+			String isFundAvailable = (person.getTotalBalance(isBank) >= minBal) ? "Transaction Successful"
 					: "Account balance will go below mimimum balance.Transaction failed";
 			System.out.println(isFundAvailable);
-			System.out.println("Your current balance is:" + person.totalFundAvailable);
+			person.setTotalBalance(isBank, totalBalance);
+			System.out.println("Your current balance is:" + person.getTotalBalance(isBank));
 		}
 	}
 
 	void withdrawAmountFromAccountUsingCheque(double accNumOfCheque, float withdrawAmountOfCheque) {
-		if (person.accountNumber == accNumOfCheque) {
-			person.totalFundAvailable -= withdrawAmountOfCheque;
-			System.out.println("Your current balance is:" + person.totalFundAvailable);
+		if (person.getAccountNumber(isBank) == accNumOfCheque) {
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance -= withdrawAmountOfCheque;
+			person.setTotalBalance(isBank, totalBalance);
+			System.out.println("Your current balance is:" + person.getTotalBalance(isBank));
 		}
 	}
 
 	void depositAmountToAccount() {
 		System.out.println("Enter the amount to deposit");
 		float depositAmount = sc.nextFloat();
-		person.totalFundAvailable += depositAmount;
-		System.out.println("Your current balance is:" + person.totalFundAvailable);
+		double totalBalance = person.getTotalBalance(isBank);
+		totalBalance += depositAmount;
+		person.setTotalBalance(isBank, totalBalance);
+		System.out.println("Your current balance is:" + person.getTotalBalance(isBank));
 	}
 
 	void depositAmountToAccountUsingCheque(double accNumOfCheque, float depositAmountOfCheque) {
-		if (person.accountNumber == accNumOfCheque) {
-			person.totalFundAvailable += depositAmountOfCheque;
-			System.out.println("Your current balance is:" + person.totalFundAvailable);
+		if (person.getAccountNumber(isBank) == accNumOfCheque) {
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance += depositAmountOfCheque;
+			person.setTotalBalance(isBank, totalBalance);
+			System.out.println("Your current balance is:" + person.getTotalBalance(isBank));
 		}
 	}
 
 	void viewBalance() {
-		System.out.println("Total Balance Available is:" + person.totalFundAvailable);
+		double totalBalance = person.getTotalBalance(isBank);
+		person.setTotalBalance(isBank, totalBalance);
+		System.out.println("Total Balance Available is:" + person.getTotalBalance(isBank));
 	}
 
 	boolean validatePassword() {

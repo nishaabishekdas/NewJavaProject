@@ -1,9 +1,9 @@
 package bankOperationPackage;
 
 public class PersonsAccount {
-	double accountNumber;
-	String accountHolderName;
-	double totalFundAvailable;
+	private double accountNumber;
+	private String accountHolderName;
+	private double totalFundAvailable;
 	private int pinNumber;
 	private String accountPassword;
 
@@ -28,5 +28,32 @@ public class PersonsAccount {
 			return accountPassword;
 		}
 		return null;
+	}
+	String getAccountHolderName(boolean isBank) {
+		if (isBank) {
+			return accountHolderName;
+		}
+		return null;
+	}
+	
+	double getAccountNumber(boolean isBank) {
+		if (isBank) {
+			return accountNumber;
+		}
+		return 0;
+	}
+	
+	double getTotalBalance(boolean isBank) {
+		if (isBank) {
+			return totalFundAvailable;
+		}
+		return 0;
+	}
+	void setTotalBalance(boolean isBank,double balance) {
+		if (isBank) {
+			totalFundAvailable=balance;
+		}else {
+			System.out.println("Cannot update value");
+		}
 	}
 }

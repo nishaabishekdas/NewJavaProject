@@ -4,13 +4,15 @@ public class OnlineBanking extends BankOperations {
 	void withdrawAmountFromAccount() {
 		System.out.println("Enter withdraw amount:");
 		float withdrawAmount = sc.nextFloat();
-		if (withdrawAmount <= person.totalFundAvailable && withdrawAmount > 0
+		if (withdrawAmount <= person.getTotalBalance(isBank) && withdrawAmount > 0
 				&& withdrawAmount <= dailyLimitOfWithdraw) {
-			person.totalFundAvailable -= withdrawAmount;
-			String isFundAvailable = (person.totalFundAvailable >= minBal) ? "Transaction Successful"
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance -= withdrawAmount;
+			String isFundAvailable = (person.getTotalBalance(isBank) >= minBal) ? "Transaction Successful"
 					: "Account balance will go below mimimum balance.Transaction failed";
 			System.out.println(isFundAvailable);
-			System.out.println("Your current balance is:" + person.totalFundAvailable);
+			person.setTotalBalance(isBank, totalBalance);
+			System.out.println("Your current balance is:" + person.getTotalBalance(isBank));
 		} else if (withdrawAmount > dailyLimitOfWithdraw) {
 			System.out.println("Requested money exceeds daily limit");
 		}
@@ -20,18 +22,24 @@ public class OnlineBanking extends BankOperations {
 		System.out.println("Enter the amount to deposit");
 		float depositAmount = sc.nextFloat();
 		if (depositAmount <= dailyLimitOfDeposit && depositAmount > 0) {
-			person.totalFundAvailable += depositAmount;
-			System.out.println("Amount Deposited Successfully.Your current balance is:" + person.totalFundAvailable);
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance += depositAmount;
+			person.setTotalBalance(isBank, totalBalance);
+			System.out
+					.println("Amount Deposited Successfully.Your current balance is:" + person.getTotalBalance(isBank));
 		} else if (depositAmount > dailyLimitOfWithdraw) {
 			System.out.println("Daily Limit Exceeded");
 		}
 	}
 
 	void depositAmountToAccountUsingCheque(double accNumOfCheque, float depositAmountOfCheque) {
-		if (person.accountNumber == accNumOfCheque && depositAmountOfCheque <= dailyLimitOfDeposit
+		if (person.getAccountNumber(isBank) == accNumOfCheque && depositAmountOfCheque <= dailyLimitOfDeposit
 				&& depositAmountOfCheque > 0) {
-			person.totalFundAvailable += depositAmountOfCheque;
-			System.out.println("Amount Deposited Successfully.Your current balance is:" + person.totalFundAvailable);
+			double totalBalance = person.getTotalBalance(isBank);
+			totalBalance += depositAmountOfCheque;
+			person.setTotalBalance(isBank, totalBalance);
+			System.out
+					.println("Amount Deposited Successfully.Your current balance is:" + person.getTotalBalance(isBank));
 		} else if (depositAmountOfCheque > dailyLimitOfWithdraw) {
 			System.out.println("Daily Limit Exceeded");
 		}
