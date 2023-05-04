@@ -1,6 +1,7 @@
 package bankOperationPackage;
 
 public class OnlineBanking extends BankOperations {
+@Override
 	void withdrawAmountFromAccount() {
 		System.out.println("Enter withdraw amount:");
 		float withdrawAmount = sc.nextFloat();
@@ -17,7 +18,7 @@ public class OnlineBanking extends BankOperations {
 			System.out.println("Requested money exceeds daily limit");
 		}
 	}
-
+@Override
 	void depositAmountToAccount() {
 		System.out.println("Enter the amount to deposit");
 		float depositAmount = sc.nextFloat();
@@ -31,7 +32,7 @@ public class OnlineBanking extends BankOperations {
 			System.out.println("Daily Limit Exceeded");
 		}
 	}
-
+@Override
 	void depositAmountToAccountUsingCheque(double accNumOfCheque, float depositAmountOfCheque) {
 		if (person.getAccountNumber(isBank) == accNumOfCheque && depositAmountOfCheque <= dailyLimitOfDeposit
 				&& depositAmountOfCheque > 0) {

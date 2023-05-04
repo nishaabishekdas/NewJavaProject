@@ -22,7 +22,7 @@ public class Atm extends BankOperations {
 			System.out.println("Requested money exceeds daily limit");
 		}
 	}
-
+@Override
 	void depositAmountToAccount() {
 		System.out.println("Enter the amount to deposit");
 		depositAmount = sc.nextFloat();
@@ -36,7 +36,7 @@ public class Atm extends BankOperations {
 			System.out.println("Daily Limit Exceeded");
 		}
 	}
-
+@Override
 	void depositAmountToAccountUsingCheque(double accNumOfCheque, float depositAmountOfCheque) {
 		if (person.getAccountNumber(isBank) == accNumOfCheque && depositAmountOfCheque <= dailyLimitOfDeposit
 				&& depositAmountOfCheque > 0) {
