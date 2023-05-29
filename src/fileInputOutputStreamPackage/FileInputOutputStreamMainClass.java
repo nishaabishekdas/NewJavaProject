@@ -8,6 +8,8 @@ public class FileInputOutputStreamMainClass {
 		// TODO Auto-generated method stub
 		FileInputOutputStreamClass inputFromTextFile=new FileInputOutputStreamClass();
 		inputFromTextFile.getNameFromTextFile();
+		//inputFromTextFile.getIntValueFromFile();
+		//inputFromTextFile.getInputFromString();
 	}
 
 }
